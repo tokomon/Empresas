@@ -1,0 +1,24 @@
+{% load static %}
+<html>
+    <head>
+        <title>TecShop</title>
+
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+            <a href="https://en.wikipedia.org/wiki/Django" class="external_link" id="link_to_wiki_page">
+            <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    </head>
+    <body>
+                <h1><a href="/">TecShop</a></h1>
+    {% if latest_question_list %}
+    <ul>
+        {% for question in latest_question_list %}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No polls are available.</p>
+    {% endif %}
+
+    </body>
+</html>
