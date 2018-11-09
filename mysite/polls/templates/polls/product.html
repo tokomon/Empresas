@@ -34,6 +34,41 @@
             </div>
         </nav><br>
 
+        <div class="w3-content w3-display-container">
+
+                <img class="mySlides" src="{% static 'images/laptop_hp.jpg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/camara_canon.jpeg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/televisor_panasonic.jpg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/televisor_sony.jpg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/tablet_apple.jpg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/sonido_lg.jpg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/sonido_sony.jpg'  %}" style=" width:30%; height:30%; margin-left: 32%;">
+            
+            <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+          <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+        </div>
+        <script>
+            var slideIndex = 1;
+            showDivs(slideIndex);
+
+            function plusDivs(n) {
+              showDivs(slideIndex += n);
+            }
+
+            function showDivs(n) {
+              var i;
+              var x = document.getElementsByClassName("mySlides");
+              if (n > x.length) {slideIndex = 1}    
+              if (n < 1) {slideIndex = x.length}
+              for (i = 0; i < x.length; i++) {
+                 x[i].style.display = "none";  
+              }
+              x[slideIndex-1].style.display = "block";  
+            }
+        </script>
+        <br>
+        <br>
+
         <div class="container-menu">
             <a href="#" class="btn-menu"> Menu <i class="icono fa fa-bars" aria-hidden="true"></i></a> <!--Para dispositivos moviles-->
             <ul class='menu'>
