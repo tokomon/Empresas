@@ -1,10 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-<h1>{{ question.question_text }}</h1>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+}
 
-<ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-{% endfor %}
-</ul>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+/* Style the header */
+header {
+    background-color: #666;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+}
+
+/* Container for flexboxes */
+section {
+    display: -webkit-flex;
+    display: flex;
+}
+
+/* Style the navigation menu */
+nav {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    background: #ccc;
+    padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Style the content */
+article {
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+    background-color: #f1f1f1;
+    padding: 10px;
+}
+
+/* Style the footer */
+footer {
+    background-color: #777;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+@media (max-width: 600px) {
+    section {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+    }
+}
+</style>
+</head>
+<body>
+
+<h2>CSS Layout Flexbox</h2>
+<p>In this example, we have created a header, two columns/boxes and a footer. On smaller screens, the columns will stack on top of each other.</p>
+<p>Resize the browser window to see the responsive effect.</p>
+<p><strong>Note:</strong> Flexbox is not supported in Internet Explorer 10 eand earlier versions.</p>
+
+<header>
+     <nav>
+            <div class="nav-wrapper">
+              <a href="/" class="brand-logo">TeckShop</a>
+            </div>
+        </nav>
+</header>
+
+<section>
+  <nav>
+   <a href="#" class="btn-menu"> Menu <i class="icono fa fa-bars" aria-hidden="true"></i></a> <!--Para dispositivos moviles-->
+            <ul class='menu'>
+                <li><a href="#" class="category_item" category="all"><i class="icono izquierda fa fa-home" aria-hidden="true"></i>Inicio</a></li>
+                <li><a href="#"><i class="icono izquierda fa fa-star" aria-hidden="true"></i>Productos<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
+                    <ul>
+                        <li><a href="#" class="category_item" category="Laptops">Laptops</a></li>
+                        <li><a href="#" class="category_item" category="Camaras">Camaras</a></li>
+                        <li><a href="#" class="category_item" category="Celulares">Celulares</a></li>
+                        <li><a href="#" class="category_item" category="Televisores">Televisores</a></li>
+                        <li><a href="#" class="category_item" category="Tablets">Tablets</a></li>
+                        <li><a href="#" class="category_item" category="Sonido">Equipos de sonido</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#"><i class="icono izquierda fa fa-share-alt" aria-hidden="true"></i>Redes Sociales</a></li>
+                <li><a href="#"><i class="icono izquierda fa fa-envelope" aria-hidden="true"></i>Contactanos</a></li>
+            </ul>
+
+
+  </nav>
+
+  <article>
+    <h1>London</h1>
+    <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Footer</p>
+</footer>
+
+</body>
+</html>
