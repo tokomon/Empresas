@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TecShop</title>
+        <title>TeckShop</title>
 
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
@@ -74,12 +74,13 @@
 
           </section-->
 
-    <div id="map">
-    <script>
-        var map, infoWindow;
+    <section class="map">
+        <div>
+        <script>
+            var map, infoWindow;
 
-        function initMap(){
-            map = new google.maps.Map(document.getElementById('map'), {
+            function initMap(){
+                map = new google.maps.Map(document.getElementById('map'), {
                 zoom:17,
                 center:{lat:-34.397, lng:150.644}
             });
@@ -105,20 +106,20 @@
             }
         }
 
-       
-
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-      }
+            infoWindow.open(map);
+        }
     </script>
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3-2crD2xThv_YNA954XB1W4cxUfjtWE&callback=initMap"></script>
 
     </div>
+    </section>
+    
 
             <section class="products-list">
                 <div class="product-item" category="laptops">
@@ -211,13 +212,6 @@
     {% else %}
     <p>No products ... are available.</p>
     {% endif %}
-
-    
-
-    <button class="enlace" role="link" onclick="window.location='http://es.stackoverflow.com'">¿Soy un botón o un enlace?</button>
-<a class="enlace" href="http://es.stackoverflow.com">¿Soy un botón o un enlace?</a>
-    <li><a href="{% url 'polls:precio'%}">Precio</a></li>
-
 
     </body>
 </html>

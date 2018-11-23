@@ -190,7 +190,8 @@ a {
 }
 
 /*mapa*/
-.container-menu .map {
-	height: 400px;
-	width: 100px;
+#map {
+	height: 80px;
+	width: 80px;
+	display: flex;
 }
