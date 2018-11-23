@@ -4,7 +4,6 @@
 <html>
     <head>
         <title>TecShop</title>
-
             <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
             <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
             <a href="https://en.wikipedia.org/wiki/Django" class="external_link" id="link_to_wiki_page">
@@ -15,26 +14,76 @@
             <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
             <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
             <script src="{% static 'js/app.js' %}"></script>
+            <script src="{% static 'js/jquery.js' %}"></script>
+            <script src="{% static 'js/main.js' %}"></script>
+            <script src="{% static 'js/localitation.js' %}"></script>
 
-            <meta charset="utf-8" />
+                <meta charset="utf-8" />
             <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
             <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
         <style>
-        .mySlides {display:none;}
+            .mySlides {display:none;}
         </style>
 
     </head>
     <body>
-        <nav>
+
+    <nav class="nav">
             <div class="nav-wrapper">
-              <a href="/" class="brand-logo">TeckShop</a>
+              <p class="brand-logo" style="font-size:50px; padding-bottom:1px;
+    padding-top: 2%;">TeckShop</p>
+
+            <a href="default.asp" style="float: right; ">
+              <img src="https://cdn0.iconfinder.com/data/icons/e-commerce-basic-icons-set-3/800/product19-256.png"  style="width:42px;height:42px;border:0;">
+            </a>
+
             </div>
         </nav>
+
         <br>
+
+        <div class="w3-content w3-display-container">
+
+                <img class="mySlides" src="{% static 'images/laptop_hp.jpg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/camara_canon.jpeg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/televisor_panasonic.jpg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/televisor_sony.jpg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/tablet_apple.jpg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/sonido_lg.jpg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/sonido_sony.jpg'  %}" style=" width:30%; height:30%; margin-left: 32%;">
+
+            <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+          <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+        </div>
+        <script>
+            var slideIndex = 1;
+            showDivs(slideIndex);
+
+            function plusDivs(n) {
+              showDivs(slideIndex += n);
+            }
+
+            function showDivs(n) {
+              var i;
+              var x = document.getElementsByClassName("mySlides");
+              if (n > x.length) {slideIndex = 1}
+              if (n < 1) {slideIndex = x.length}
+              for (i = 0; i < x.length; i++) {
+                 x[i].style.display = "none";
+              }
+              x[slideIndex-1].style.display = "block";
+            }
+        </script>
+        <br>
+        <br>
+
 
         <div class="container-menu">
             <a href="#" class="btn-menu"> Menu <i class="icono fa fa-bars" aria-hidden="true"></i></a> <!--Para dispositivos moviles-->
@@ -51,12 +100,53 @@
                     </ul>
                 </li>
 
+                <li><a href="#"><i class="icono izquierda fa fa-globe" aria-hidden="true"></i>Mapa</a></li>
                 <li><a href="#"><i class="icono izquierda fa fa-share-alt" aria-hidden="true"></i>Redes Sociales</a></li>
                 <li><a href="#"><i class="icono izquierda fa fa-envelope" aria-hidden="true"></i>Contactanos</a></li>
             </ul>
 
 
         <div class="rowq">
+
+            <div id="map">
+    <script>
+        var map, infoWindow;
+        function initMap(){
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom:17,
+                center:{lat:-34.397, lng:150.644}
+            });
+            infoWindow = new google.maps.InfoWindow;
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(function(position){
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent('Location found.');
+                    infoWindow.open(map);
+                    map.setCenter(pos);
+                }, function(){
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+        }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3-2crD2xThv_YNA954XB1W4cxUfjtWE&callback=initMap"></script>
+            </div>
+
+
             <div class="container">
             <h5>Buscar</h5>
             <div class="row">
@@ -74,16 +164,22 @@
             </div>
            <br>
 
-                <section class="products-list">
-                    {% for product in product_list %}
+                  <section class="products-list">
+
+                {% for product in product_list %}
                     <div class="product-item" category={{product.categoria}}>
+                        <a href="{% url 'polls:detail' product.id %}" style="float: right; ">
                         <img  src={{ product.image }}>
+            </a>
+
                         <a >{{product.modelo}}</a>
-                        <p >{{ product.nombre }}</p>
-                        <p >S./{{ product.precio }}</p>
+                        <a style="padding:2px;width: 100%;height: 50px;overflow: auto;">{{ product.nombre }}</a>
+                        <a style="text-align:center" >S./{{ product.precio }}</a>
                     </div>
                     {% endfor %}
-                </section>
+
+            </section>
+
         </div>
     </body>
 </html>

@@ -46,16 +46,6 @@ class index1(generic.ListView):
 
         return Producto.objects.all()
 
-    #return render(request, 'polls/sop.html', {'name': list})
-
-    #HttpResponse(at['content'])
-
-class ProductView(generic.ListView):
-    template_name='polls/product.html'
-    context_object_name = 'product_list'
-    def get_queryset(self):
-        return Product.objects.all()
-
 
 
 class ProductoView(generic.ListView):
@@ -63,7 +53,7 @@ class ProductoView(generic.ListView):
     context_object_name = 'product_list'
     def get_queryset(self):
         #return Producto.objects.all()
-        return Producto.objects.order_by('precio')
+        return Producto.objects.order_by('id')
 
 def precio(request):
     template_name = 'polls/product.html'
@@ -84,16 +74,9 @@ class IndexView(generic.ListView):
         """Return the last five published questions."""
         return Question.objects.order_by('-pub_date')[:5]
 
-
-class DetailView(generic.DetailView):
-    model = Question
-    template_name = 'polls/detail.html'
-
-
-class ResultsView(generic.DetailView):
-    model = Question
-    template_name = 'polls/results.html'
-
+def detail(request, producto_id):
+    producto = get_object_or_404(Producto, pk=producto_id)
+    return render(request, 'polls/detail.html', {'product': producto})
 
 """    
 def index(request):
@@ -102,34 +85,11 @@ def index(request):
     return render(request, 'polls/index.html', context)
 #def index(request):
 #    return HttpResponse("Hello, world. You're at the polls index.")
-def detail(request, question_id):
-    question = get_object_or_404(Question, pk=question_id)
-    return render(request, 'polls/detail.html', {'question': question})
 
 def results(request, question_id):
      question = get_object_or_404(Question, pk=question_id)
     return render(request, 'polls/results.html', {'question': question})
 """
-
-
-def vote(request, question_id):
-    question = get_object_or_404(Question, pk=question_id)
-    try:
-        selected_choice = question.choice_set.get(pk=request.POST['choice'])
-    except (KeyError, Choice.DoesNotExist):
-        # Redisplay the question voting form.
-        return render(request, 'polls/detail.html', {
-            'question': question,
-            'error_message': "You didn't select a choice.",
-        })
-    else:
-        selected_choice.votes += 1
-        selected_choice.save()
-        # Always return an HttpResponseRedirect after successfully dealing
-        # with POST data. This prevents data from being posted twice if a
-        # user hits the Back button.
-        return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
-
 
 
 def get_name(request):

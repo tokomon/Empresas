@@ -34,8 +34,6 @@ class Producto(models.Model):
     tienda =  models.CharField(max_length=200,default="")
     url_tienda =  models.CharField(max_length=500,default="")
 
-
-
     def __str__(self):
         return self.nombre
 

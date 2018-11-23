@@ -1,15 +1,4 @@
-<!--h1>{{ question.question_text }}</h1>
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-
-<form action="{% url 'polls:vote' question.id %}" method="post">
-{% csrf_token %}
-{% for choice in question.choice_set.all %}
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
-{% endfor %}
-<input type="submit" value="Vote">
-</form-->
   {% load static %}
 
 <!DOCTYPE html>
@@ -19,35 +8,71 @@
 
             <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
             <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-            <a href="https://en.wikipedia.org/wiki/Django" class="external_link" id="link_to_wiki_page">
             <link rel="stylesheet" href="{% static 'css/index.css' %}">
             <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
-            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+            <script src="{% static 'js/jquery.js' %}"></script>
             <script src="{% static 'js/app.js' %}"></script>
 
-            <meta charset="utf-8" />
-            <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-            <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <style>
-        .mySlides {display:none;}
-        </style>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.mySlides {display:none;}
+</style>
 
     </head>
-    <body>
-        <nav>
+        <nav class="nav">
             <div class="nav-wrapper">
-              <a href="/" class="brand-logo">TeckShop</a>
+              <p class="brand-logo" style="font-size:50px; padding-bottom:1px;
+    padding-top: 2%;">TeckShop</p>
+
+            <a href="default.asp" style="float: right; ">
+              <img src="https://cdn0.iconfinder.com/data/icons/e-commerce-basic-icons-set-3/800/product19-256.png"  style="width:42px;height:42px;border:0;">
+            </a>
+
             </div>
         </nav>
+
         <br>
 
+        <div class="w3-content w3-display-container">
+
+                <img class="mySlides" src="{% static 'images/laptop_hp.jpg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/camara_canon.jpeg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/televisor_panasonic.jpg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/televisor_sony.jpg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/tablet_apple.jpg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/sonido_lg.jpg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/sonido_sony.jpg'  %}" style=" width:30%; height:30%; margin-left: 32%;">
+
+            <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+          <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+        </div>
+        <script>
+            var slideIndex = 1;
+            showDivs(slideIndex);
+
+            function plusDivs(n) {
+              showDivs(slideIndex += n);
+            }
+
+            function showDivs(n) {
+              var i;
+              var x = document.getElementsByClassName("mySlides");
+              if (n > x.length) {slideIndex = 1}
+              if (n < 1) {slideIndex = x.length}
+              for (i = 0; i < x.length; i++) {
+                 x[i].style.display = "none";
+              }
+              x[slideIndex-1].style.display = "block";
+            }
+        </script>
+        <br>
+        <br>
         <div class="container-menu">
             <a href="#" class="btn-menu"> Menu <i class="icono fa fa-bars" aria-hidden="true"></i></a> <!--Para dispositivos moviles-->
             <ul class='menu'>
@@ -63,42 +88,37 @@
                     </ul>
                 </li>
 
+                <li><a href="#"><i class="icono izquierda fa fa-globe" aria-hidden="true"></i>Mapa</a></li>
                 <li><a href="#"><i class="icono izquierda fa fa-share-alt" aria-hidden="true"></i>Redes Sociales</a></li>
                 <li><a href="#"><i class="icono izquierda fa fa-envelope" aria-hidden="true"></i>Contactanos</a></li>
             </ul>
 
 
-        <div class="rowq">
-            <div class="container">
-            <h5>Bootstrap 4 Search Bar</h5>
-            <div class="row">
-                <div class="col-12">
-                   <div class="input-group">
-                       <input class="form-control border-secondary py-2" type="search" value="search">
-                       <div class="input-group-append">
-                           <button class="btn btn-outline-secondary" type="button">
-                           <i class="fa fa-search"></i>
-                           </button>
-                       </div>
-                   </div>
-                </div>
-                </div>
-            </div>
-           <br>
-            <div class="column1">
 
-                <section class="products-list">
-                    {% for product in product_list %}
-                    <div class="product-item" category={{product.categoria}}>
-                        <img  src={{ product.image }}>
-                        <a >{{product.modelo}}</a>
-                        <p >{{ product.nombre }}</p>
-                        <p >S./{{ product.precio }}</p>
-                    </div>
-                    {% endfor %}
-                </section>
+            <section class="products-list">
+
+
+            <div class="row">
+              <div class="column1" >
+                <img  src={{ product.image }}>
+              </div>
+              <div class="column" style="background-color:#FA8072;">
+                        <li  style="margin-left: 20px;" >Modelo:  {{product.modelo}}</li>
+                        <li style="margin-left: 20px;">Nombre: {{ product.nombre }}</li>
+                        <li style="margin-left: 20px;">Precio: S./{{ product.precio }}</li>
+                        <li style="margin-left: 20px;">URL del producto: <a  href={{ product.url }} >{{ product.url }}</a>
+                        <li style="margin-left: 20px;">Categoria: \s {{ product.categoria }}</li>
+                        <li style="margin-left: 20px;">Tienda: {{ product.tienda }}</li>
+                        <li style="margin-left: 20px;">URL de Tienda: <a  href={{ product.url_tienda }} >{{ product.url_tienda }}</a>
+</li>
+                  <a  style="padding: 100px 25px 25px 100px;">    <button>Comprar</button>
+              </a>
+              </div>
             </div>
-        </div>
+
+
+
+            </section>
+    </div>
     </body>
 </html>
-
