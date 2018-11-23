@@ -188,3 +188,9 @@ a {
 	padding: 8px 0;
 	background: #FA8072;
 }
+
+/*mapa*/
+.container-menu .map {
+	height: 400px;
+	width: 100px;
+}
