@@ -3,8 +3,6 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
 import json
-#import requests
-
 from .models import Choice, Question,Producto
 from .forms import NameForm
 
@@ -74,9 +72,34 @@ class IndexView(generic.ListView):
         """Return the last five published questions."""
         return Question.objects.order_by('-pub_date')[:5]
 
+
+class LoginView(generic.ListView):
+    template_name = 'polls/login.html'
+    context_object_name = 'latest_question_list'
+
+    def get_queryset(self):
+        """Return the last five published questions."""
+        return Question.objects.order_by('-pub_date')[:5]
+
+class MapaView(generic.ListView):
+    template_name = 'polls/geolocalizacion.html'
+    context_object_name = 'latest_question_list'
+
+    def get_queryset(self):
+        """Return the last five published questions."""
+        return Question.objects.order_by('-pub_date')[:5]
+
+
 def detail(request, producto_id):
     producto = get_object_or_404(Producto, pk=producto_id)
     return render(request, 'polls/detail.html', {'product': producto})
+
+def precio(request, producto_precio):
+    producto = get_object_or_404(Producto, pk=producto_precio)
+    return render(request, 'polls/detail.html', {'product': producto})
+
+def login(request):
+    return render(request, 'polls/login.html', {'product': 'producto'})
 
 """    
 def index(request):
@@ -90,7 +113,6 @@ def results(request, question_id):
      question = get_object_or_404(Question, pk=question_id)
     return render(request, 'polls/results.html', {'question': question})
 """
-
 
 def get_name(request):
     # if this is a POST request we need to process the form data
