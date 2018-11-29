@@ -29,7 +29,32 @@ $(document).ready(function(){
             $('.menu li ul').slideUp();
             $('.menu li').removeClass('activado');
         }
+
     });
+
+
+    $('#buscador').click(function() {
+
+        var precioProd = $('.product-item').attr("precio");
+        var catProduct = $('.nombre');
+        var buscando = $('#precio').val();
+        var item='';
+        var price='';
+        for (var i=0;i<catProduct.length;i++)
+        {
+            price = precioProd[i].toLowerCase();
+            item = $(catProduct[i]).html().toLowerCase();
+            //alert(item);
+                if(buscando.length==0 || item.indexOf(buscando)>-1 )
+                {
+                    $(catProduct[i]).parents('.product-item').show();
+                }else
+                {
+                    $(catProduct[i]).parents('.product-item').hide();
+                }
+
+        }
+       });
 
     $('.category_item').click(function() {
         var catProduct = $(this).attr('category');
