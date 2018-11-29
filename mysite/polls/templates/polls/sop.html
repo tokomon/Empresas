@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1><p id="demo"></p>
+
+</h1>
+
+                <h1><a href="/">TecShop</a></h1>
+    {% if product_list %}
+    <ul>
+        {% for product in product_list %}
+        <li><a >{{ product.nombre }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No polls are available.</p>
+    {% endif %}
+
+<!--script>
+var xmlhttp={{product_list}}
+document.getElementById("demo").innerHTML = xmlhttp;
+
+myObj = JSON.parse(xmlhttp);
+        txt += "<table border='1'>"
+        for (x in myObj) {
+            txt += "<tr><td>" + myObj[x].nombre + "</td></tr>";
+        }
+        txt += "</table>"
+        document.getElementById("demo").innerHTML = txt;
+
+
+
+</script-->
+
+</body>
+</html>

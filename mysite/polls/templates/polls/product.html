@@ -1,110 +1,146 @@
-{% load static %}
+  {% load static %}
 
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TeckShop</title>
 
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <a href="https://en.wikipedia.org/wiki/Django" class="external_link" id="link_to_wiki_page">
-        <link rel="stylesheet" href="{% static 'css/index.css' %}">
-        <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
-        
-        <script src="{% static 'js/jquery.js' %}"></script>
-        <script src="{% static 'js/app.js' %}"></script>
-        <script src="{% static 'js/main.js' %}"></script>
-        <script src="{% static 'js/localitation.js' %}"></script>
+        <title>TecShop</title>
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+            <a href="https://en.wikipedia.org/wiki/Django" class="external_link" id="link_to_wiki_page">
+            <link rel="stylesheet" href="{% static 'css/index.css' %}">
+            <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+            <script src="{% static 'js/app.js' %}"></script>
+            <script src="{% static 'js/jquery.js' %}"></script>
+            <script src="{% static 'js/main.js' %}"></script>
+            <script src="{% static 'js/localitation.js' %}"></script>
 
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-        
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        
+                <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+            <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
         <style>
             .mySlides {display:none;}
         </style>
 
     </head>
     <body>
-        <!--div><h1><a href="/">TecShop</a></h1-->
 
-        <nav>
+    <nav class="nav">
             <div class="nav-wrapper">
-              <a href="/" class="brand-logo">TeckShop</a>
+              <p class="brand-logo" style="font-size:50px; padding-bottom:1px;
+    padding-top: 2%;">TeckShop</p>
+
+            <a href="default.asp" style="float: right; ">
+              <img src="https://cdn0.iconfinder.com/data/icons/e-commerce-basic-icons-set-3/800/product19-256.png"  style="width:42px;height:42px;border:0;">
+            </a>
+
             </div>
-        </nav><br>
+        </nav>
+
+        <br>
+
+        <div class="w3-content w3-display-container">
+
+                <img class="mySlides" src="{% static 'images/laptop_hp.jpg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/camara_canon.jpeg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/televisor_panasonic.jpg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/televisor_sony.jpg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/tablet_apple.jpg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/sonido_lg.jpg'  %}" style="width:30%; height:30%; margin-left: 32%;">
+                <img class="mySlides" src="{% static 'images/sonido_sony.jpg'  %}" style=" width:30%; height:30%; margin-left: 32%;">
+
+            <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+          <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+        </div>
+        <script>
+            var slideIndex = 1;
+            showDivs(slideIndex);
+
+            function plusDivs(n) {
+              showDivs(slideIndex += n);
+            }
+
+            function showDivs(n) {
+              var i;
+              var x = document.getElementsByClassName("mySlides");
+              if (n > x.length) {slideIndex = 1}
+              if (n < 1) {slideIndex = x.length}
+              for (i = 0; i < x.length; i++) {
+                 x[i].style.display = "none";
+              }
+              x[slideIndex-1].style.display = "block";
+            }
+        </script>
+        <br>
+        <br>
+
 
         <div class="container-menu">
             <a href="#" class="btn-menu"> Menu <i class="icono fa fa-bars" aria-hidden="true"></i></a> <!--Para dispositivos moviles-->
             <ul class='menu'>
                 <li><a href="#" class="category_item" category="all"><i class="icono izquierda fa fa-home" aria-hidden="true"></i>Inicio</a></li>
                 <li><a href="#"><i class="icono izquierda fa fa-star" aria-hidden="true"></i>Productos<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
-                <ul>
-                    <li><a href="#" class="category_item" category="laptops">Laptops</a></li>
-                    <li><a href="#" class="category_item" category="camaras">Camaras</a></li>
-                    <li><a href="#" class="category_item" category="celulares">Celulares</a></li>
-                    <li><a href="#" class="category_item" category="televisores">Televisores</a></li>
-                    <li><a href="#" class="category_item" category="tablets">Tablets</a></li>
-                    <li><a href="#" class="category_item" category="sonido">Equipos de sonido</a></li>
-                </ul>
+                    <ul>
+                        <li><a href="#" class="category_item" category="Laptops">Laptops</a></li>
+                        <li><a href="#" class="category_item" category="Camaras">Camaras</a></li>
+                        <li><a href="#" class="category_item" category="Celulares">Celulares</a></li>
+                        <li><a href="#" class="category_item" category="Televisores">Televisores</a></li>
+                        <li><a href="#" class="category_item" category="Tablets">Tablets</a></li>
+                        <li><a href="#" class="category_item" category="Sonido">Equipos de sonido</a></li>
+                    </ul>
                 </li>
 
-                <li><a href="#"><i class="icono izquierda fa fa-globe" aria-hidden="true"></i>Mapa</a></li>
+                <li><a href="#" class="mapa_item"><i class="icono izquierda fa fa-globe" aria-hidden="true"></i>Mapa</a></li>
                 <li><a href="#"><i class="icono izquierda fa fa-share-alt" aria-hidden="true"></i>Redes Sociales</a></li>
                 <li><a href="#"><i class="icono izquierda fa fa-envelope" aria-hidden="true"></i>Contactanos</a></li>
             </ul>
 
-          <!--section class="products-list">
-    {% if product_list %}
 
-    <div class="derecha">
-      <ul id="galeria">
-          {% for product in product_list %}
+        <div class="rowq">
 
-        <li ><img src={{ product.url_text }}></li>
+        <section class="mapa">
+            <div id="map" style="height: 50%; width: 50%;"></div>
+                <script>
+                    var map, infoWindow;
 
-        {% endfor %}
-      </ul>
-    </div>
+                    function initMap(){
+                        map = new google.maps.Map(document.getElementById('map'), {
+                            zoom:17,
+                            center:{lat:-34.397, lng:150.644}
 
-          </section-->
+                        
+                            
+                        });
 
-    <section class="map">
-        <div>
-        <script>
-            var map, infoWindow;
-
-            function initMap(){
-                map = new google.maps.Map(document.getElementById('map'), {
-                zoom:17,
-                center:{lat:-34.397, lng:150.644}
-            });
-
-            infoWindow = new google.maps.InfoWindow;
-
-            if(navigator.geolocation){
-                navigator.geolocation.getCurrentPosition(function(position){
-                    var pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    };
-
-                    infoWindow.setPosition(pos);
-                    infoWindow.setContent('Location found.');
-                    infoWindow.open(map);
-                    map.setCenter(pos);
-                }, function(){
-                    handleLocationError(true, infoWindow, map.getCenter());
-                });
-            } else {
-                handleLocationError(false, infoWindow, map.getCenter());
-            }
-        }
+                    infoWindow = new google.maps.InfoWindow;
+                    if(navigator.geolocation){
+                        navigator.geolocation.getCurrentPosition(function(position){
+                            var pos = {
+                                lat: position.coords.latitude,
+                                lng: position.coords.longitude
+                            };
+                            infoWindow.setPosition(pos);
+                            infoWindow.setContent('Yo');
+                            infoWindow.open(map);
+                            map.setCenter(pos);
+                        }, function(){
+                            handleLocationError(true, infoWindow, map.getCenter());
+                        });
+                    } else {
+                        handleLocationError(false, infoWindow, map.getCenter());
+                        }
+                    }
 
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
             infoWindow.setPosition(pos);
@@ -114,104 +150,42 @@
             infoWindow.open(map);
         }
     </script>
-
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3-2crD2xThv_YNA954XB1W4cxUfjtWE&callback=initMap"></script>
 
-    </div>
     </section>
-    
+   <!--         <div class="container">
+            <h5>Buscar</h5>
+            <div class="row">
+                <div class="col-12">
+                   <div class="input-group">
+                       <input class="form-control border-secondary py-2" type="search" value="search">
+                       <div class="input-group-append">
+                           <button class="btn btn-outline-secondary" type="button">
+                           <i class="fa fa-search"></i>
+                           </button>
+                       </div>
+                   </div>
+                </div>
+                </div>
+            </div>
+           <br>
 
-            <section class="products-list">
-                <div class="product-item" category="laptops">
-                    <img src="{% static 'images/laptop_hp.jpg'  %}">
-                    <a href="#">Laptop hp</a>
-                </div>
-                <div class="product-item" category="laptops">
-                    <img src="{% static 'images/laptop_toshiba.jpg' %}">
-                    <a href="#">Laptop Toshiba</a>
-                </div>
-                <div class="product-item" category="camaras">
-                    <img src="{% static 'images/camara_canon.jpeg'  %}">
-                    <a href="#">Camara Canon</a>
-                </div>
-                <div class="product-item" category="camaras">
-                    <img src="{% static 'images/camara_sony.jpg'  %}">
-                    <a href="#">Camara Sony</a>
-                </div>
-                <div class="product-item" category="celulares">
-                    <img src="{% static 'images/iphone.jpg'  %}">
-                    <a href="#">iPhone</a>
-                </div>
-                <div class="product-item" category="celulares">
-                    <img src="{% static 'images/samsung_galaxy.jpg'  %}">
-                    <a href="#">Samsung Galaxy</a>
-                </div>
-                <div class="product-item" category="televisores">
-                    <img src="{% static 'images/televisor_lg.jpg'  %}">
-                    <a href="#">LG</a>
-                </div>
-                <div class="product-item" category="televisores">
-                    <img src="{% static 'images/televisor_lgOLED.jpg'  %}">
-                    <a href="#">LG OLED</a>
-                </div>
-                <div class="product-item" category="televisores">
-                    <img src="{% static 'images/televisor_panasonic.jpg'  %}">
-                    <a href="#">Panasonic</a>
-                </div>
-                <div class="product-item" category="televisores">
-                    <img src="{% static 'images/televisor_samsung.jpg'  %}">
-                    <a href="#">Samsung</a>
-                </div>
-                <div class="product-item" category="televisores">
-                    <img src="{% static 'images/televisor_sony.jpg'  %}">
-                    <a href="#">Sony</a>
-                </div>
-                <div class="product-item" category="tablets">
-                    <img src="{% static 'images/tablet_apple.jpg'  %}">
-                    <a href="#">Apple</a>
-                </div>
-                <div class="product-item" category="tablets">
-                    <img src="{% static 'images/tablet_desktop.jpg'  %}">
-                    <a href="#">Tablet Desktop</a>
-                </div>
-                <div class="product-item" category="tablets">
-                    <img src="{% static 'images/tablet_samsung.jpg'  %}">
-                    <a href="#">Samsung</a>
-                </div>
-                <div class="product-item" category="sonido">
-                    <img src="{% static 'images/sonido_lg.jpg'  %}">
-                    <a href="#">Cafini</a>
-                </div>
-                <div class="product-item" category="sonido">
-                    <img src="{% static 'images/sonido_lg.jpg'  %}">
-                    <a href="#">LG</a>
-                </div>
-                <div class="product-item" category="sonido">
-                    <img src="{% static 'images/sonido_sony.jpg'  %}">
-                    <a href="#">Sony</a>
-                </div>
+                  <section class="products-list">
+
+                {% for product in product_list %}
+                    <div class="product-item" category={{product.categoria}}>
+                        <a href="{% url 'polls:detail' product.id %}" style="float: right; ">
+                        <img  src={{ product.image }}>
+            </a>
+
+                        <a >{{product.modelo}}</a>
+                        <a style="padding:2px;width: 100%;height: 50px;overflow: auto;">{{ product.nombre }}</a>
+                        <a style="text-align:center" >S./{{ product.precio }}</a>
+                    </div>
+                    {% endfor %}-->
+
             </section>
 
-
-
-    </div>
-
-
-    <!ul>
-    <div class="grid-container">
-
-        {% for product in product_list %}
-        <div >
-        <p >{{ product.product_text }}</p></li>
-        <p >S./{{ product.price_value }}</p></li>
-        <a ><img class="pequeña" src={{ product.url_text }}></a></li>
         </div>
-        {% endfor %}
-        </div>
-    </ul>
-    {% else %}
-    <p>No products ... are available.</p>
-    {% endif %}
-
     </body>
 </html>
