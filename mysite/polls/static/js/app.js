@@ -70,7 +70,7 @@ $(document).ready(function(){
     $('.category_item[category="all"]').click(function() { //filtro de inicio
         $('.product-item').show();
     });
-
+/*
     $('.menu .mapa_item').click(function(){
                             alert('entroovhdcckjsbdl');
 
@@ -111,6 +111,6 @@ $(document).ready(function(){
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
             infoWindow.open(map);
-        }
+        }*/
 });
 

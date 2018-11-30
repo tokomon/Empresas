@@ -109,57 +109,14 @@
 
 
         <div class="rowq">
-
-        <section class="mapa">
-            <div id="map" style="height: 50%; width: 50%;"></div>
-                <script>
-                    var map, infoWindow;
-
-                    function initMap(){
-                        map = new google.maps.Map(document.getElementById('map'), {
-                            zoom:17,
-                            center:{lat:-34.397, lng:150.644}
-
-                        });
-
-                    infoWindow = new google.maps.InfoWindow;
-                    if(navigator.geolocation){
-                        navigator.geolocation.getCurrentPosition(function(position){
-                            var pos = {
-                                lat: position.coords.latitude,
-                                lng: position.coords.longitude
-                            };
-                            infoWindow.setPosition(pos);
-                            infoWindow.setContent('Yo');
-                            infoWindow.open(map);
-                            map.setCenter(pos);
-                        }, function(){
-                            handleLocationError(true, infoWindow, map.getCenter());
-                        });
-                    } else {
-                        handleLocationError(false, infoWindow, map.getCenter());
-                        }
-                    }
-
-        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-            infoWindow.setPosition(pos);
-            infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-            infoWindow.open(map);
-        }
-    </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3-2crD2xThv_YNA954XB1W4cxUfjtWE&callback=initMap"></script>
-
-    </section>
-            <div class="container">
+        <div class="container">
             <h5>Buscar</h5>
             <div class="row">
                 <div class="col-12">
                    <div class="input-group">
                        <input id="precio" class="form-control border-secondary py-2" type="search" value="">
                        <div class="input-group-append">
-                           class="btn btn-outline-secondary"-->
+                          <!-- class="btn btn-outline-secondary"-->
 
                            <button id="buscador" class="btn btn-outline-secondary" type="button" >
 
