@@ -103,7 +103,7 @@ $(document).ready(function(){
                     } else {
                         handleLocationError(false, infoWindow, map.getCenter());
                         }
-                    }
+        }
 
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
             infoWindow.setPosition(pos);
@@ -112,8 +112,5 @@ $(document).ready(function(){
                               'Error: Your browser doesn\'t support geolocation.');
             infoWindow.open(map);
         }
-
-        $('.container-menu .mapa').show();
-    })
 });
 

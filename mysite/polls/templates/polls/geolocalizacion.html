@@ -29,8 +29,9 @@
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
-          zoom: 15
+          zoom: 12
         });
+
         infoWindow = new google.maps.InfoWindow;
 
         // Try HTML5 geolocation.
@@ -48,11 +49,37 @@
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
+
+          setMarkers(map);
         } else {
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         }
       }
+
+      var shops = [
+            ['La Curacao', -16.3979, -71.5350000, 4],
+            ['Ripley', -16.3916, -71.5469, 3],
+            ['Oechsle', -16.3897, -71.54978, 3],
+            ['Estilos, Av. Ejercito', -16.3891, -71.5498, 3],
+            ['Estilos, Av. Mercaderes', -16.3988, -71.5338, 4],
+            ['Movistar', -16.3903, -71.5448, 3],
+            ['Claro', -16.3905, -71.5457, 3],
+            ['Agencia Entel', -16.3895, -71.5488, 3],
+          ];
+
+         function setMarkers(map){
+            for(var i=0; i<shops.length; i++){
+              var shop = shops[i];
+              var marker = new google.maps.Marker({
+                position: {lat: shop[1], lng: shop[2]},
+                map: map,
+                //shape: shape,
+                title: shop[0],
+                zIndex: shop[3]
+              });
+            }
+          }
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
